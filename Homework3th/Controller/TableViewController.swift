@@ -12,7 +12,6 @@ import Kingfisher
 
 protocol HomeTableViewInterface {
     func articleLoad(article: [Article])
-    func articlePosted()
     func deleteData(id: Int)
     func DeleteContentSuccess(withMessage message:String)
 }
@@ -28,7 +27,6 @@ class HomeTableViewController: UITableViewController {
         eventHandler = HomeTableViewPresenter()
         
         eventHandler.articleLoad(viewInterface: self)
-        
         
         eventHandler.fetchData(page: 1, limit: 15)
     }

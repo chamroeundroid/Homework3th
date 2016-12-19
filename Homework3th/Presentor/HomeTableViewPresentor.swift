@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 protocol HomeTableViewPresenterInterface {
     func responseData(data: [Article])
     func DeleteContentSuccess(withMessage message: String)
@@ -17,13 +18,11 @@ class HomeTableViewPresenter: HomeTableViewPresenterInterface {
     var homeTableViewInterface: HomeTableViewInterface?
     var homeTableViewService: HomeTableViewService?
     
-    
     func articleLoad(viewInterface: HomeTableViewInterface) {
         
         homeTableViewInterface = viewInterface
         homeTableViewService = HomeTableViewService()
         homeTableViewService?.homeTableViewPresenterInterface = self
-        
     }
     
     func fetchData(page: Int, limit: Int) {
@@ -34,7 +33,6 @@ class HomeTableViewPresenter: HomeTableViewPresenterInterface {
         homeTableViewService?.deleteData(id: id)
     }
     func responseData(data: [Article]) {
-        
         homeTableViewInterface?.articleLoad(article: data)
     }
     

@@ -40,8 +40,6 @@ class HomeTableViewService {
                         for responseData in jsonData {
                             
                             self.articles.append(Article(JSON: responseData as! [String : Any])!)
-                            //print("Count Data \(self.articles.count)")
-                            
                         }
                         
                         //  Notify to presenter
@@ -57,16 +55,12 @@ class HomeTableViewService {
         }
         getTask.resume()
     }
-    
-  
-    
-    
+
     //  Mark Function Delete Data
     func deleteData(id: Int) {
         
         let url = URL(string: "\(Constant.GlobalConstants.ARTICLE)/\(id)")
-        
-        
+
         var request = URLRequest(url: url!)
         request.setValue("\(Constant.GlobalConstants.headers)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "DELETE"
